@@ -15,6 +15,8 @@ class ToDoApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        drawerTheme: DrawerThemeData(
+          backgroundColor: Colors.white),
         primarySwatch: Colors.blue, // اللون الأساسي
         scaffoldBackgroundColor: const Color.fromARGB(255, 243, 243, 243),
         appBarTheme: const AppBarTheme(
