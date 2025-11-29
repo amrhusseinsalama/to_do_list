@@ -20,19 +20,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: Drawer(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: SizedBox(
-                child: Image.asset("assets/images/drawer.png"),),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: Image.asset(
+                    "assets/images/drawer.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: drawerItems.length,
+                  itemBuilder: (context, index) =>
+                      DrawerTile(item: drawerItems[index]),
+                ),
+              ],
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: drawerItems.length,
-              itemBuilder: (context, index) => DrawerTile(item: drawerItems[index]),
-            ),
-          ],
+          ),
         ),
       ),
       appBar: AppBar(

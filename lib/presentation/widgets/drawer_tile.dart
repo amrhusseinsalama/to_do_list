@@ -8,21 +8,23 @@ class DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-      child: ListTile(
-        
-        onTap: item.onTap,
-        trailing: Icon(item.icon, color: Colors.blueAccent),
-        title: Text(
-          item.title,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.blueAccent,
+    return Column(
+      children: [
+        ListTile(
+          leading: Icon(item.leading, color: Colors.blueAccent),
+          onTap: () => item.onTap?.call(context),
+          trailing: Icon(item.trailing,color: Colors.blueAccent),
+          title: Text(
+            item.title,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.blueAccent,
+            ),
           ),
         ),
-      ),
+        Divider(thickness: 0.8,)
+      ],
     );
   }
 }
